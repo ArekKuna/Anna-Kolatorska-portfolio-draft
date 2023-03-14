@@ -1,18 +1,11 @@
-export function Header() {
+import { Logo } from "../Logo/Logo";
+
+export const Header = () => {
   return (
     <header>
-      <div>LOGO</div>
-      <div>
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-        </ul>
-      </div>
-      <div>Twitter Facebook</div>
+      <Logo />
     </header>
   );
-}
+};
 
 export default Header;
