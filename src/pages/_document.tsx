@@ -2,7 +2,7 @@ import { Html, Head, NextScript, Main } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="pl">
+    <Html lang="pl-PL">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -11,7 +11,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body id="body">
         <Main />
         <NextScript />
       </body>

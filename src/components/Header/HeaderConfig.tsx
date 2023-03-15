@@ -1,0 +1,79 @@
+import { ChevronIcon } from "./MobileNav/ChevronDownIcon";
+
+export type MobileNavigationMenuCategory = {
+  text: string;
+  href: string;
+};
+
+export type MobileNavigationMenu = {
+  id: number;
+  text: string;
+  href: string;
+  categories?: MobileNavigationMenuCategory[];
+  icon?: JSX.Element;
+};
+
+export const MobileMenuMap: MobileNavigationMenu[] = [
+  {
+    id: 1,
+    text: "home",
+    href: "./",
+  },
+  {
+    id: 2,
+    text: "oferta",
+    href: "./oferta",
+    categories: [
+      {
+        text: "sesje biznesowe",
+        href: "./oferta#",
+      },
+      {
+        text: "sesje portretowe",
+        href: "./oferta#",
+      },
+      {
+        text: "sesje rodzinne",
+        href: "./oferta#",
+      },
+      {
+        text: "sesje reportażowe",
+        href: "./oferta#",
+      },
+      {
+        text: "sesje kobiece",
+        href: "./oferta#",
+      },
+    ],
+    icon: <ChevronIcon />,
+  },
+  {
+    id: 3,
+    text: "o mnie",
+    href: "./omnie",
+  },
+  {
+    id: 4,
+    text: "kontakt",
+    href: "./kontakt",
+  },
+];
+
+export const drawerVariantsMap = {
+  initial: { x: "100%", opacity: 1 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.5 } },
+  hidden: { x: "100%", opacity: 1, transition: { duration: 0.5 } },
+};
+
+export const hideHeaderVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { ease: [0.1, 0.25, 0.3, 1], duration: 0.5 },
+  },
+  hidden: {
+    opacity: 0,
+    y: -25,
+    transition: { ease: [0.1, 0.25, 0.3, 1], duration: 0.5 },
+  },
+};
