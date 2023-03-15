@@ -22,27 +22,27 @@ export const MobileMenuMap: MobileNavigationMenu[] = [
   {
     id: 2,
     text: "oferta",
-    href: "./offer",
+    href: "./oferta",
     categories: [
       {
         text: "sesje biznesowe",
-        href: "./offer#",
+        href: "./oferta#",
       },
       {
         text: "sesje portretowe",
-        href: "./offer#",
+        href: "./oferta#",
       },
       {
         text: "sesje rodzinne",
-        href: "./offer#",
+        href: "./oferta#",
       },
       {
         text: "sesje reportażowe",
-        href: "./offer#",
+        href: "./oferta#",
       },
       {
         text: "sesje kobiece",
-        href: "./offer#",
+        href: "./oferta#",
       },
     ],
     icon: <ChevronIcon />,
@@ -50,11 +50,30 @@ export const MobileMenuMap: MobileNavigationMenu[] = [
   {
     id: 3,
     text: "o mnie",
-    href: "./about",
+    href: "./omnie",
   },
   {
     id: 4,
     text: "kontakt",
-    href: "./contact",
+    href: "./kontakt",
   },
 ];
+
+export const drawerVariantsMap = {
+  initial: { x: "100%", opacity: 1 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.5 } },
+  hidden: { x: "100%", opacity: 1, transition: { duration: 0.5 } },
+};
+
+export const hideHeaderVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { ease: [0.1, 0.25, 0.3, 1], duration: 0.5 },
+  },
+  hidden: {
+    opacity: 0,
+    y: -25,
+    transition: { ease: [0.1, 0.25, 0.3, 1], duration: 0.5 },
+  },
+};

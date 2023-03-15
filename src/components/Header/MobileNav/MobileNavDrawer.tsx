@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { MobileNavMenu } from "./MobileNavMenu";
 import { CloseIcon } from "./CloseIcon";
+import { drawerVariantsMap } from "../HeaderConfig";
 
 type MobileNavDrawerProps = {
   onClick: () => void;
@@ -15,11 +16,11 @@ export const MobileNavDrawer = ({
     <AnimatePresence>
       {isDrawerOpen && (
         <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "100%", opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed top-0 left-0 p-5 w-screen h-screen flex justify-center items-center text-white bg-black/80 z-100 drawer-open"
+          variants={drawerVariantsMap}
+          initial="initial"
+          animate="visible"
+          exit="hidden"
+          className="fixed top-0 left-0 p-5 w-screen h-screen flex justify-center items-center overflow-y-auto text-white bg-black/80 z-100"
         >
           <CloseIcon
             onClick={onClick}

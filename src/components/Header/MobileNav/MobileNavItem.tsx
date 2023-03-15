@@ -8,30 +8,6 @@ type MobileNavItemprops = {
   onClick: () => void;
 };
 
-const getStyles = (isOpen: boolean) => {
-  const menuStyles =
-    "w-full flex flex-wrap justify-between items-center border-b-[1px] border-b-white/30";
-  const menuOpenStyles = isOpen ? "!border-b-0" : "";
-  const chevronStyles = "flex justify-center items-center";
-  const chevronOpenStyles = isOpen
-    ? "rotate-180 duration-200"
-    : "rotate-0 duration-200";
-  const submenuStyles =
-    "w-full flex flex-col justify-center items-start overflow-hidden";
-  const subMenuOpenStyles = isOpen
-    ? "max-h-72 visible opacity-1 duration-500"
-    : "max-h-0 invisible opacity-0 duration-500";
-
-  return {
-    menuStyles,
-    menuOpenStyles,
-    chevronStyles,
-    chevronOpenStyles,
-    submenuStyles,
-    subMenuOpenStyles,
-  };
-};
-
 export const MobileNavItem = ({ link, onClick }: MobileNavItemprops) => {
   const [isOpen, setIsopen] = useState(false);
 
@@ -68,4 +44,28 @@ export const MobileNavItem = ({ link, onClick }: MobileNavItemprops) => {
       )}
     </li>
   );
+};
+
+const getStyles = (isOpen: boolean) => {
+  const menuStyles =
+    "w-full flex flex-wrap justify-between items-center border-b-[1px] border-b-white/30";
+  const menuOpenStyles = isOpen ? "!border-b-0" : "";
+  const chevronStyles = "flex justify-center items-center";
+  const chevronOpenStyles = isOpen
+    ? "rotate-180 duration-200"
+    : "rotate-0 duration-200";
+  const submenuStyles =
+    "w-full flex flex-col justify-center items-start overflow-hidden";
+  const subMenuOpenStyles = isOpen
+    ? "max-h-72 visible opacity-1 duration-500"
+    : "max-h-0 invisible opacity-0 duration-500";
+
+  return {
+    menuStyles,
+    menuOpenStyles,
+    chevronStyles,
+    chevronOpenStyles,
+    submenuStyles,
+    subMenuOpenStyles,
+  };
 };

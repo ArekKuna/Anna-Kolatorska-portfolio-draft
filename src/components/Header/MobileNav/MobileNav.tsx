@@ -7,6 +7,7 @@ export const MobileNav = () => {
 
   const handleOpenDrawer = () => {
     const body = document.getElementById("body");
+
     setOpenDrawer((prevState) => !prevState);
     body?.classList.toggle(`${openDrawer}` ? "drawer-open" : "");
   };

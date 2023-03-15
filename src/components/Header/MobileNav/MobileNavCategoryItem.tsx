@@ -11,8 +11,8 @@ export const MobileNavCategoryItem = ({
   onClick,
 }: MobileNavCategoryItemProps) => {
   return (
-    <li className="pl-4 py-4 w-full border-b-[1px] border-b-white/30">
-      <Link href={category.href} onClick={onClick}>
+    <li className="w-full flex border-b-[1px] border-b-white/30">
+      <Link href={category.href} onClick={onClick} className="pl-4 py-4 flex-1">
         {category.text}
       </Link>
     </li>
