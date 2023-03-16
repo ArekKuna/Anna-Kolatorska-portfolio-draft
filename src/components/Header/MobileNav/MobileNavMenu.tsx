@@ -14,8 +14,7 @@ export const MobileNavMenu = ({ onClick }: MobileNavMenuProps) => {
     <nav className="flex justify-center items-center font-light uppercase">
       <ul className="h-full flex flex-col justify-center items-start">
         {MobileMenuMap.map((link) => {
-          const activeMenuLink =
-            activePath === link.href ? "text-red-500 duration-1000" : "";
+          const activeMenuLink = activePath === link.href;
 
           return (
             <li

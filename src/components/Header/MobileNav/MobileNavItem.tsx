@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { MobileNavigationMenu } from "../HeaderConfig";
 import { MobileNavCategoryItem } from "./MobileNavCategoryItem";
 
 type MobileNavItemprops = {
   link: MobileNavigationMenu;
-  activeMenuLink: string;
+  activeMenuLink: boolean;
   onClick: () => void;
 };
 
@@ -16,15 +17,24 @@ export const MobileNavItem = ({
 }: MobileNavItemprops) => {
   const [isOpen, setIsopen] = useState(false);
 
-  const { chevronStyles, chevronOpenStyles, submenuStyles, subMenuOpenStyles } =
-    getStyles(isOpen);
+  const router = useRouter();
+  const activeSubmenuPath = router.asPath;
+
+  const {
+    menuLinkStyles,
+    activeMenuLinkStyles,
+    chevronStyles,
+    chevronOpenStyles,
+    submenuStyles,
+    subMenuOpenStyles,
+  } = getStyles(isOpen, activeMenuLink);
 
   return (
     <>
       <Link
         href={link.href}
         onClick={onClick}
-        className={`${activeMenuLink} py-4 flex-1`}
+        className={`${menuLinkStyles} ${activeMenuLinkStyles}`}
       >
         {link.text}
       </Link>
@@ -36,21 +46,30 @@ export const MobileNavItem = ({
       </span>
       {link.categories && (
         <ul className={`${submenuStyles} ${subMenuOpenStyles}`}>
-          {link.categories?.map((category) => (
-            <MobileNavCategoryItem
-              key={category.text}
-              category={category}
-              onClick={onClick}
-            />
-          ))}
+          {link.categories?.map((category) => {
+            const activeSubmenuLink = activeSubmenuPath === category.href;
+
+            return (
+              <MobileNavCategoryItem
+                key={category.text}
+                category={category}
+                activeSubmenuLink={activeSubmenuLink}
+                onClick={onClick}
+              />
+            );
+          })}
         </ul>
       )}
     </>
   );
 };
 
-const getStyles = (isOpen: boolean) => {
-  const chevronStyles = "flex justify-center items-center";
+const getStyles = (isOpen: boolean, activeMenuLink: boolean) => {
+  const menuLinkStyles = "py-4 flex-1";
+  const activeMenuLinkStyles = activeMenuLink
+    ? "text-red-500 duration-1000"
+    : "";
+  const chevronStyles = "w-[20%] flex justify-center items-center";
   const chevronOpenStyles = isOpen
     ? "rotate-180 duration-200"
     : "rotate-0 duration-200";
@@ -61,6 +80,8 @@ const getStyles = (isOpen: boolean) => {
     : "max-h-0 opacity-0 duration-500";
 
   return {
+    menuLinkStyles,
+    activeMenuLinkStyles,
     chevronStyles,
     chevronOpenStyles,
     submenuStyles,

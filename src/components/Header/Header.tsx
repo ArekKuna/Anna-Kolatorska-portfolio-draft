@@ -11,12 +11,14 @@ export const Header = () => {
   const { scrollY } = useScroll();
 
   const updateSetHeaderState = () => {
-    if (scrollY.get() < scrollY?.getPrevious()) {
+    const current = scrollY.get();
+    const prev = scrollY.getPrevious();
+
+    if (current < prev) {
       sethideHeader(false);
-    } else if (
-      scrollY?.get() > 100 &&
-      scrollY?.get() > scrollY?.getPrevious()
-    ) {
+    }
+
+    if (current > 100 && current > prev) {
       sethideHeader(true);
     }
   };
