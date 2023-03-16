@@ -10,9 +10,12 @@ export const MobileNavMenu = ({ onClick }: MobileNavMenuProps) => {
     <nav className="flex justify-center items-center font-light uppercase">
       <ul className="h-full flex flex-col justify-center items-start">
         {MobileMenuMap.map((link) => (
-          <>
-            <MobileNavItem key={link.id} link={link} onClick={onClick} />
-          </>
+          <li
+            key={link.id}
+            className="w-full flex flex-wrap justify-between items-center border-b-[1px] border-b-white/30"
+          >
+            <MobileNavItem link={link} onClick={onClick} />
+          </li>
         ))}
       </ul>
     </nav>
