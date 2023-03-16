@@ -57,8 +57,8 @@ const getStyles = (isOpen: boolean) => {
   const submenuStyles =
     "w-full flex flex-col justify-center items-start overflow-hidden";
   const subMenuOpenStyles = isOpen
-    ? "max-h-72 visible opacity-1 duration-500"
-    : "max-h-0 invisible opacity-0 duration-500";
+    ? "max-h-72 opacity-1 duration-500"
+    : "max-h-0 opacity-0 duration-500";
 
   return {
     menuStyles,
