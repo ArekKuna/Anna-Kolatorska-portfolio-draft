@@ -17,32 +17,32 @@ export const MobileMenuMap: MobileNavigationMenu[] = [
   {
     id: 1,
     text: "home",
-    href: "./",
+    href: "/",
   },
   {
     id: 2,
     text: "oferta",
-    href: "./oferta",
+    href: "/oferta",
     categories: [
       {
         text: "sesje biznesowe",
-        href: "./oferta#",
+        href: "/oferta#sesje-biznesowe",
       },
       {
         text: "sesje portretowe",
-        href: "./oferta#",
+        href: "/oferta#sesje-portretowe",
       },
       {
         text: "sesje rodzinne",
-        href: "./oferta#",
+        href: "/oferta#sesje-rodzinne",
       },
       {
         text: "sesje reportażowe",
-        href: "./oferta#",
+        href: "/oferta#sesje-reportazowe",
       },
       {
         text: "sesje kobiece",
-        href: "./oferta#",
+        href: "/oferta#sesje-kobiece",
       },
     ],
     icon: <ChevronIcon />,
@@ -50,12 +50,12 @@ export const MobileMenuMap: MobileNavigationMenu[] = [
   {
     id: 3,
     text: "o mnie",
-    href: "./omnie",
+    href: "/omnie",
   },
   {
     id: 4,
     text: "kontakt",
-    href: "./kontakt",
+    href: "/kontakt",
   },
 ];
 

@@ -12,4 +12,5 @@
 
 body.drawer-open {
   overflow: hidden;
+  position: fixed;
 }
