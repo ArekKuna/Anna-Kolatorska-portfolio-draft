@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const Facebook = () => {
-  const facebookURL = "https://www.facebook.com/AniaKolatorska";
+  const facebookURL = "fb://profile/100049219012909";
 
   return (
     <Link

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { MobileNavDrawer } from "./MobileNavDrawer";
 import { MobileNavTrigger } from "./MobileNavTrigger";
+import { Socials } from "@/components/Socials/Socials";
+import { MobileNavDrawer } from "./MobileNavDrawer";
 
 export const MobileNav = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -14,7 +15,10 @@ export const MobileNav = () => {
 
   return (
     <>
-      <MobileNavTrigger onClick={handleOpenDrawer} />
+      <div className="w-full flex justify-around">
+        <Socials />
+        <MobileNavTrigger onClick={handleOpenDrawer} />
+      </div>
       <MobileNavDrawer onClick={handleOpenDrawer} isDrawerOpen={openDrawer} />
     </>
   );

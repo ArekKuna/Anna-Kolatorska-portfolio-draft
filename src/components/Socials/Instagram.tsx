@@ -1,8 +1,7 @@
 import Link from "next/link";
 
 export const Instagram = () => {
-  const instgramURL =
-    "https://www.instagram.com/aniakolatorska/?igshid=YmMyMTA2M2Y%3D&fbclid=IwAR3ZzNNgCqVDjQnwPEZtmMebimWo5_uqTD41VuZ4kMYH57LI6-VqO9uCmWs";
+  const instgramURL = "instagram://user?username=aniakolatorska";
 
   return (
     <Link href={instgramURL} target="_blank" rel="noopener noreferrer">

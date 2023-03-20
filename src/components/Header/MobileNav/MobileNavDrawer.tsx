@@ -20,7 +20,7 @@ export const MobileNavDrawer = ({
           initial="initial"
           animate="visible"
           exit="hidden"
-          className="fixed top-0 left-0 p-5 w-screen h-screen flex justify-center items-center overflow-y-auto text-white bg-black/80 z-100"
+          className="fixed top-0 left-0 p-5 w-screen h-screen flex justify-center items-center overflow-y-auto text-white bg-black/90 z-100"
         >
           <CloseIcon
             onClick={onClick}

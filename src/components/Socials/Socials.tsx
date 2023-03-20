@@ -3,7 +3,7 @@ import { Instagram } from "./Instagram";
 
 export const Socials = () => {
   return (
-    <div className="flex justify-center items-center space-x-5">
+    <div className="flex justify-center items-center space-x-3">
       <Facebook />
       <Instagram />
     </div>

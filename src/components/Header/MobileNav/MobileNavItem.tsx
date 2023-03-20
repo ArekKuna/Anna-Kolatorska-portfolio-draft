@@ -5,20 +5,15 @@ import { MobileNavigationMenu } from "../HeaderConfig";
 import { MobileNavCategoryItem } from "./MobileNavCategoryItem";
 
 type MobileNavItemprops = {
-  link: MobileNavigationMenu;
-  activeMenuLink: boolean;
+  links: MobileNavigationMenu;
   onClick: () => void;
 };
 
-export const MobileNavItem = ({
-  link,
-  activeMenuLink,
-  onClick,
-}: MobileNavItemprops) => {
+export const MobileNavItem = ({ links, onClick }: MobileNavItemprops) => {
   const [isOpen, setIsopen] = useState(false);
 
   const router = useRouter();
-  const activeSubmenuPath = router.asPath;
+  const activePath = router.pathname;
 
   const {
     menuLinkStyles,
@@ -27,48 +22,49 @@ export const MobileNavItem = ({
     chevronOpenStyles,
     submenuStyles,
     subMenuOpenStyles,
-  } = getStyles(isOpen, activeMenuLink);
+  } = getStyles(isOpen, links, activePath);
 
   return (
     <>
       <Link
-        href={link.href}
+        href={links.href}
         onClick={onClick}
         className={`${menuLinkStyles} ${activeMenuLinkStyles}`}
       >
-        {link.text}
+        {links.text}
       </Link>
-      <span
-        onClick={() => setIsopen((prevState) => !prevState)}
-        className={`${chevronStyles} ${chevronOpenStyles}`}
-      >
-        {link.icon}
-      </span>
-      {link.categories && (
+      {links.icon && (
+        <span
+          onClick={() => setIsopen((prevState) => !prevState)}
+          className={`${chevronStyles} ${chevronOpenStyles}`}
+        >
+          {links.icon}
+        </span>
+      )}
+      {links.categories && (
         <ul className={`${submenuStyles} ${subMenuOpenStyles}`}>
-          {link.categories?.map((category) => {
-            const activeSubmenuLink = activeSubmenuPath === category.href;
-
-            return (
-              <MobileNavCategoryItem
-                key={category.text}
-                category={category}
-                activeSubmenuLink={activeSubmenuLink}
-                onClick={onClick}
-              />
-            );
-          })}
+          {links.categories?.map((category) => (
+            <MobileNavCategoryItem
+              key={category.text}
+              categories={category}
+              onClick={onClick}
+            />
+          ))}
         </ul>
       )}
     </>
   );
 };
 
-const getStyles = (isOpen: boolean, activeMenuLink: boolean) => {
-  const menuLinkStyles = "py-4 flex-1";
-  const activeMenuLinkStyles = activeMenuLink
-    ? "text-red-500 duration-1000"
-    : "";
+const getStyles = (
+  isOpen: boolean,
+  links: MobileNavigationMenu,
+  path: string
+) => {
+  const activePath = path === links.href;
+
+  const menuLinkStyles = "py-3 w-full flex-1";
+  const activeMenuLinkStyles = activePath ? "text-sky-400 duration-1000" : "";
   const chevronStyles = "w-[20%] flex justify-center items-center";
   const chevronOpenStyles = isOpen
     ? "rotate-180 duration-200"

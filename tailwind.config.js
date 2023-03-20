@@ -7,7 +7,8 @@ module.exports = {
         lato: ["Lato, sans-serif"],
       },
       boxShadow: {
-        top: "0 -1px 2px 0",
+        top: "0 -0.1px 1px 0",
+        bottom: "0 0.1px 1px 0",
       },
     },
   },
