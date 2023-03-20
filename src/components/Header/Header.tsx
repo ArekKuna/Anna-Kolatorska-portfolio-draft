@@ -31,10 +31,10 @@ export const Header = () => {
     <motion.header
       variants={hideHeaderVariants}
       animate={hideHeader ? "hidden" : "visible"}
-      className="fixed w-full min-h-[110px] p-2 flex flex-col justify-center items-center shadow-sm shadow-black bg-white"
+      className="fixed min-h-[137px] pb-2 w-full flex flex-col justify-center items-center shadow-bottom shadow-black bg-white"
     >
       <Link href="./" className="flex justify-center">
-        <Logo className="w-1/2" />
+        <Logo className="w-full" />
       </Link>
       <MobileNav />
     </motion.header>

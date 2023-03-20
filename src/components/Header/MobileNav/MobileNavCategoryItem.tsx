@@ -1,37 +1,42 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { MobileNavigationMenuCategory } from "../HeaderConfig";
 
 type MobileNavCategoryItemProps = {
-  category: MobileNavigationMenuCategory;
-  activeSubmenuLink: boolean;
+  categories: MobileNavigationMenuCategory;
   onClick: () => void;
 };
 
 export const MobileNavCategoryItem = ({
-  category,
-  activeSubmenuLink,
+  categories,
   onClick,
 }: MobileNavCategoryItemProps) => {
-  const { activeSubmenuStyles, submenuStyles } = getStyles(activeSubmenuLink);
+  const router = useRouter();
+  const activePath = router.asPath;
+
+  const { activeSubmenuStyles, submenuStyles } = getStyles(
+    categories,
+    activePath
+  );
 
   return (
     <li className="w-full flex border-b-[1px] border-b-white/30 last-of-type:border-b-0">
       <Link
-        href={category.href}
+        href={categories.href}
         onClick={onClick}
         className={`${activeSubmenuStyles} ${submenuStyles}`}
       >
-        {category.text}
+        {categories.text}
       </Link>
     </li>
   );
 };
 
-const getStyles = (activeSubmenuLink: boolean) => {
-  const submenuStyles = "pl-4 py-4 flex-1";
-  const activeSubmenuStyles = activeSubmenuLink
-    ? "text-red-500 duration-1000"
-    : "";
+const getStyles = (categories: MobileNavigationMenuCategory, path: string) => {
+  const activePath = path === categories.href;
+
+  const submenuStyles = "pl-4 py-3 flex-1";
+  const activeSubmenuStyles = activePath ? "text-indigo-500 duration-1000" : "";
 
   return {
     submenuStyles,
