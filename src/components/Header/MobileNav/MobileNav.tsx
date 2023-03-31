@@ -15,7 +15,7 @@ export const MobileNav = () => {
 
   return (
     <>
-      <div className="w-full flex justify-around">
+      <div className="w-full flex flex-col flex-wrap justify-around col-span-1">
         <Socials />
         <MobileNavTrigger onClick={handleOpenDrawer} />
       </div>
