@@ -1,14 +1,14 @@
-import { Logo } from "../Logo/Logo";
-import { FooterNav } from "./FooterNav/FooterNav";
 import Link from "next/link";
+import { Contacts } from "./Contacts";
+import { Logo } from "../Logo/Logo";
 
 export const Footer = () => {
   return (
-    <footer className="pt-2 flex flex-col justify-center items-center gap-2 shadow-top shadow-black">
-      <FooterNav />
-      <Link href="/" className="flex justify-center items-center">
-        <Logo className="w-1/2" />
+    <footer className="p-2 pt-0 grid grid-cols-4 shadow-top shadow-black">
+      <Link href="/" className="col-span-2 col-start-2">
+        <Logo className="w-full h-[50px]" />
       </Link>
+      <Contacts />
     </footer>
   );
 };
