@@ -26,7 +26,7 @@ export const MobileMenuMap: MobileNavigationMenu[] = [
     categories: [
       {
         text: "sesje biznesowe",
-        href: "/oferta/sesje-biznesowe",
+        href: "/sesje-biznesowe",
       },
       {
         text: "sesje portretowe",
