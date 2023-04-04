@@ -1,8 +1,4 @@
-type Props = {
-  env: (arg: string) => void;
-};
-//@ts-ignore
-export default ({ env }: Props) => ({
+export const admin = ({ env }) => ({
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
   },

@@ -1,7 +1,7 @@
 import path from "path";
 
 //@ts-ignore
-export default ({ env }) => {
+export const database = ({ env }) => {
   const client = env("DATABASE_CLIENT", "sqlite");
 
   const connections = {

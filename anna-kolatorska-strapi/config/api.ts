@@ -1,4 +1,4 @@
-export default {
+export const api = {
   rest: {
     defaultLimit: 25,
     maxLimit: 100,
